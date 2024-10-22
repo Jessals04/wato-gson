@@ -1,0 +1,12 @@
+{
+  "name": "wato-gson",
+  "version": "1.0.0",
+  "description": "Provides the ability to convert JSON objects to and from the Struct object format required by gRPC.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Jesse Watson",
+  "license": "ISC",
+  "type": "module"
+}
