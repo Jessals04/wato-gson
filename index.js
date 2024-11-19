@@ -40,12 +40,12 @@ function toStruct(obj, debug = false) {
 
             case 'boolean':
 
-                struct.fields[key] = { booleanValue: value, kind: 'booleanValue' };
+                struct.fields[key] = { boolValue: value, kind: 'boolValue' };
 
                 break;
         
             default:
-                if (debug) console.error(`${key} is of type ${typeof value}, which is not configured.`);
+                if (debug) console.error(`Error: toStruct: ${key} is of type ${typeof value}, which is not configured.`);
                 break;
 
         }
@@ -101,12 +101,12 @@ const toListValue = (array, debug = false) => {
 
             case 'boolean':
 
-                list.push({ booleanValue: item });
+                list.push({ boolValue: item });
 
                 break;
         
             default:
-                if (debug) console.error(`${item} is of type ${typeof item}, which is not configured.`);
+                if (debug) console.error(`Error: toListValue: ${item} is of type ${typeof item}, which is not configured.`);
                 break;
 
         }
@@ -155,14 +155,14 @@ function fromStruct(struct, debug = false) {
 
                 break;
 
-            case 'booleanValue':
+            case 'boolValue':
 
-                result[key] = value.booleanValue;
+                result[key] = value.boolValue;
 
                 break;
 
             default:
-                if (debug) console.error(`Type ${value.kind} is not configured.`);
+                if (debug) console.error(`Error: fromStruct: Type ${value.kind} is not configured. Value of ${key}:`, value);
                 break;
 
         }
@@ -216,14 +216,14 @@ const fromListValue = (listValue, debug = false) => {
 
                 break;
 
-            case 'booleanValue':
+            case 'boolValue':
 
-                list.push(item.booleanValue);
+                list.push(item.boolValue);
 
                 break;
         
             default:
-                if (debug) console.error(`Type ${item.kind} is not configured.`);
+                if (debug) console.error(`Error: fromListValue: Type ${item.kind} is not configured. Value of ${key}:`, value);
                 break;
 
         }
